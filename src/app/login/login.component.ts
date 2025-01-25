@@ -2,6 +2,8 @@ import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { AuthService } from '../services/auth/auth.service';
+import { TokenService } from '../services/auth/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ import { AuthService } from '../services/auth/auth.service';
 export class LoginComponent implements OnInit {
   public loginForm!:FormGroup
   public loginError!:string
-  constructor(private authService:AuthService){}
+  constructor(private authService:AuthService, private tokenService:TokenService, private router:Router){}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -31,7 +33,11 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     console.log(this.loginForm.value);
     this.authService.login(this.loginForm.value).subscribe({
-      next:(res) => console.log(res),
+      next:(res:any) => {
+        this.tokenService.storeToken(res.accessToken)
+        this.router.navigate(['welcome'])
+        console.log(res);
+      },
       error:(err) => {console.log(err.error.message); this.loginError = err.error.message; this.loginForm.reset() },
     })
   }
