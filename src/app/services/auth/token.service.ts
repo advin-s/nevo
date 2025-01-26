@@ -11,7 +11,7 @@ export class TokenService {
   private router = inject(Router)
   constructor() { 
    afterNextRender(()=>{
-     if (typeof localStorage !== undefined) {
+     if (typeof localStorage !== 'undefined') {
        const userToken = localStorage.getItem('userToken');
        if(userToken){
         this.token.next(userToken)
@@ -32,5 +32,6 @@ export class TokenService {
   clearToken(){
     this.token.next(null)
     localStorage.removeItem('userToken')
+    this.router.navigate([''])
   }
 }
