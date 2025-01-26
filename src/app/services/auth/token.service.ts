@@ -13,7 +13,18 @@ export class TokenService {
    afterNextRender(()=>{
      if (typeof localStorage !== 'undefined') {
        const userToken = localStorage.getItem('userToken');
-       if(userToken){
+       const expiresIn = parseInt(
+         localStorage.getItem('expiresIn')?.split(',').join('') || '0',
+       );
+      //  const expiresIn = parseInt(localStorage.getItem('expiresIn') || '0', 10);
+       console.log(expiresIn);
+       console.log(expiresIn);
+       
+       
+       const currentTime = new Date().getTime()
+       console.log(currentTime);
+       
+       if(userToken && expiresIn > currentTime){
         this.token.next(userToken)
         this.router.navigate(['welcome'],{replaceUrl:true})
        }
@@ -26,7 +37,9 @@ export class TokenService {
 
   storeToken(token:string){
     this.token.next(token)
+    const expiresIn = new Date().getTime() + 60 * 60 * 1000;
     localStorage.setItem('userToken',token)
+    localStorage.setItem('expiresIn', expiresIn.toLocaleString())
   }
 
   clearToken(){
