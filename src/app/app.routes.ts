@@ -21,12 +21,13 @@ const isAuth:CanMatchFn = (route,segments) =>{
 export const routes: Routes = [
     {
         path:'',
-        component:LoginComponent
+        component:LoginComponent,
+        title:'Login to nevo'
+
     },
     {
         path:'welcome',
-        component:WelcomeComponent,
+        loadComponent:()=>import('./welcome/welcome.component').then(c => c.WelcomeComponent),
         canMatch:[isAuth]
-
     }
 ];
