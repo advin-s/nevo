@@ -24,7 +24,7 @@ export class TokenService {
        
        if(userToken && expiresIn > currentTime){
         this.token.next(userToken)
-        this.router.navigate(['welcome'],{replaceUrl:true})
+        this.router.navigate(['nevo'],{replaceUrl:true})
        }
        else{
          this.token.next(userToken);

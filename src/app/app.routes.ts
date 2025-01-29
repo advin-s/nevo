@@ -2,7 +2,6 @@ import { CanMatchFn, RedirectCommand, Router, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { inject } from '@angular/core';
 import { TokenService } from './services/auth/token.service';
-import { WelcomeComponent } from './welcome/welcome.component';
 import { map } from 'rxjs';
 
 const isAuth:CanMatchFn = (route,segments) =>{
@@ -26,8 +25,14 @@ export const routes: Routes = [
 
     },
     {
-        path:'welcome',
+        path:'nevo',
         loadComponent:()=>import('./welcome/welcome.component').then(c => c.WelcomeComponent),
-        canMatch:[isAuth]
+        canMatch:[isAuth],
+        children:[
+            {
+                path:'recipes',
+                loadComponent:()=>import('./welcome/recipes/recipes.component').then(c => c.RecipesComponent)
+            }
+        ]
     }
 ];

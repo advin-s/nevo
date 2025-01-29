@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.value).subscribe({
       next:(res:any) => {
         this.tokenService.storeToken(res.accessToken)
-        this.router.navigate(['welcome'],{replaceUrl:true})
+        this.router.navigate(['nevo'],{replaceUrl:true})
         console.log(res);
       },
       error:(err) => {console.log(err.error.message); this.loginError = err.error.message; this.loginForm.reset() },
