@@ -40,6 +40,16 @@ export const routes: Routes = [
           import('./welcome/recipes/recipes.component').then(
             (c) => c.RecipesComponent,
           ),
+        children:[
+          {
+            path:'',
+            loadComponent:()=>import('./welcome/recipes/view-recipe/view-recipe.component').then(c => c.ViewRecipeComponent)
+          },
+          {
+            path:'recipe',
+            loadComponent:()=> import('./welcome/recipes/recipe/recipe.component').then(c => c.RecipeComponent)
+          }
+        ]
       },
       {
         path: 'users',

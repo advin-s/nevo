@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit {
       next:(res:any) => {
         console.log(res);
         const {firstName} = res
+        console.log('called user');
+        
         this.loaderService.hideLoader()
         this.user = firstName
       }
