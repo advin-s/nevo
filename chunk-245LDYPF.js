@@ -1,0 +1,1 @@
+import{P as o,j as e}from"./chunk-2FX5CELB.js";var r=class t{loader=new e;constructor(){}showLoader(){this.loader.next(!0)}hideLoader(){this.loader.next(!1)}static \u0275fac=function(a){return new(a||t)};static \u0275prov=o({token:t,factory:t.\u0275fac,providedIn:"root"})};export{r as a};

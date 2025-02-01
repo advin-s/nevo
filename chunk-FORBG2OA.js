@@ -1,0 +1,1 @@
+import{Ra as n,Sa as s,X as t,Za as a,bb as p}from"./chunk-2FX5CELB.js";var i=class o{static \u0275fac=function(e){return new(e||o)};static \u0275cmp=t({type:o,selectors:[["app-todos"]],standalone:!0,features:[p],decls:2,vars:0,template:function(e,r){e&1&&(n(0,"p"),a(1,"todos works!"),s())}})};export{i as TodosComponent};
