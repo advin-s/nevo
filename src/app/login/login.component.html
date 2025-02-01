@@ -1,0 +1,77 @@
+
+
+<section class="bg-login bg-cover">
+    <div class="container">
+        <div class="row align-items-center justify-content-center vh-100">
+            <div class="col-12 col-md-6 col-lg-3">
+                <form class="row gy-5" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="col-12">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                class="bi bi-chevron-double-up mx-auto d-block text-white" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708z" />
+                                <path fill-rule="evenodd"
+                                    d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
+                            </svg>
+                        </div>
+                        <h1 class="display-5 text-uppercase text-center text-white mb-0">Nevo</h1>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex flex-column gap-3">
+                            <div>
+                                <div class="px-3 py-1 bg-light opacity-50 d-flex align-items-center rounded-pill">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                            fill="currentColor" class="bi bi-person text-dark" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                                        </svg>
+                                    </span>
+                                    <input class="form-control shadow-none border-0" placeholder="username" type="text"
+                                        formControlName="username">
+                                </div>
+                                @if(loginForm.controls['username'].hasError('minlength') &&
+                                loginForm.controls['username'].touched){
+                                <span class="ms-3 small text-danger">Username should be more than 6 characters</span>
+                                }
+                                @if(!loginForm.controls['username'].valid && loginForm.controls['username'].touched &&
+                                !loginForm.controls['username'].hasError('minlength')){
+                                <span class="ms-3 small text-danger">Please enter a valid username</span>
+                                }
+                            </div>
+                            <div>
+                                <div class="px-3 py-1 bg-light opacity-50 d-flex align-items-center rounded-pill">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                            fill="currentColor" class="bi bi-key text-dark" viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8m4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5" />
+                                            <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+                                        </svg>
+                                    </span>
+                                    <input class="form-control shadow-none border-0" placeholder="password"
+                                        type="password" formControlName="password">
+                                </div>
+                                @if(loginForm.controls['password'].hasError('minlength') &&
+                                loginForm.controls['password'].touched){
+                                <span class="ms-3 small text-danger">Password should be more than 6 characters</span>
+                                }
+                                @if(!loginForm.controls['password'].valid && loginForm.controls['password'].touched &&
+                                !loginForm.controls['password'].hasError('minlength')){
+                                <span class="ms-3 small text-danger">Please enter a valid password</span>
+                                }
+                                @if(loginError && !loginForm.touched){
+                                <span class="ms-3 small text-danger">{{loginError}}</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn w-100 btn-warning rounded-pill text-white" type="submit">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
