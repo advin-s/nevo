@@ -1,5 +1,5 @@
 import { afterNextRender, inject, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -16,15 +16,24 @@ export class TokenService {
        const expiresIn = parseInt(
          localStorage.getItem('expiresIn')?.split(',').join('') || '0',
        );
+       this.router.events.subscribe(event =>{
+         if(event instanceof NavigationEnd){
+           localStorage.setItem('lastRoute', event.urlAfterRedirects)
+         }
+       })
     
-       
-       
        const currentTime = new Date().getTime()
        console.log(currentTime);
        
        if(userToken && expiresIn > currentTime){
         this.token.next(userToken)
-        this.router.navigate(['nevo'],{replaceUrl:true})
+        const lastRoute = localStorage.getItem('lastRoute')
+        if(lastRoute){
+          this.router.navigateByUrl(lastRoute)
+        }
+        else{
+          this.router.navigate(['nevo'],{replaceUrl:true})
+        }
        }
        else{
          this.token.next(userToken);
