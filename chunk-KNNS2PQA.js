@@ -1,1 +1,0 @@
-import{Ra as o,Sa as p,X as n,Za as i,bb as c}from"./chunk-2FX5CELB.js";var a=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=n({type:t,selectors:[["app-recipe"]],standalone:!0,features:[c],decls:2,vars:0,template:function(e,s){e&1&&(o(0,"p"),i(1,"recipe works!"),p())}})};export{a as RecipeComponent};

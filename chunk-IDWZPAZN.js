@@ -1,0 +1,1 @@
+import{Ta as n,Ua as s,X as o,bb as a,fb as p}from"./chunk-TEVMBHQZ.js";var i=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-quotes"]],standalone:!0,features:[p],decls:2,vars:0,template:function(e,r){e&1&&(n(0,"p"),a(1,"quotes works!"),s())}})};export{i as QuotesComponent};

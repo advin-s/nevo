@@ -1,0 +1,1 @@
+import{Ta as s,Ua as n,X as o,bb as p,fb as a}from"./chunk-TEVMBHQZ.js";var i=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-posts"]],standalone:!0,features:[a],decls:2,vars:0,template:function(e,r){e&1&&(s(0,"p"),p(1,"posts works!"),n())}})};export{i as PostsComponent};

@@ -1,0 +1,1 @@
+import{o as r}from"./chunk-4O2ZYKII.js";import{Va as n,X as o,fb as i}from"./chunk-TEVMBHQZ.js";var p=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-recipes"]],standalone:!0,features:[i],decls:1,vars:0,template:function(e,s){e&1&&n(0,"router-outlet")},dependencies:[r]})};export{p as RecipesComponent};

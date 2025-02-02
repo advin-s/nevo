@@ -1,0 +1,1 @@
+import{Ta as n,Ua as o,X as s,bb as r,fb as a}from"./chunk-TEVMBHQZ.js";var p=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=s({type:t,selectors:[["app-users"]],standalone:!0,features:[a],decls:2,vars:0,template:function(e,m){e&1&&(n(0,"p"),r(1,"users works!"),o())}})};export{p as UsersComponent};
