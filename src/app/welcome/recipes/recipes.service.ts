@@ -14,4 +14,8 @@ export class RecipesService {
   getRecipes(params:string = ''):Observable<any>{
     return this.http.get(`https://dummyjson.com/recipes${params ? `?${params}`:''}`);
   }
+
+  getRecipe(id:string):Observable<any>{
+    return this.http.get(`https://dummyjson.com/recipes/${id}`);
+  }
 }

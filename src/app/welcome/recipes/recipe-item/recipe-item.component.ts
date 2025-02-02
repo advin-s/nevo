@@ -1,9 +1,10 @@
 import { Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-item',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './recipe-item.component.html',
   styleUrl: './recipe-item.component.scss',
   host: {

@@ -3,7 +3,7 @@
     <p class="mb-0">
         {{recipe()?.name}}
     </p>
-    <button class="btn btn-white p-1 border-0" title="view">
+    <button class="btn btn-white p-1 border-0" title="view" [routerLink]="['recipe/' + recipe().id]">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-up-right-square"
             viewBox="0 0 16 16">
             <path fill-rule="evenodd"
