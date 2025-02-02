@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserCredentials } from '../../interfaces/interfaces';
@@ -10,7 +10,11 @@ export class AuthService {
   constructor(private http:HttpClient) { }
 
   login(user:UserCredentials){
-   return this.http.post('https://dummyjson.com/auth/login',user);
+    const headers = new HttpHeaders({
+      'skip': 'true',
+      'Content-Type': 'application/json',
+    });
+   return this.http.post('https://dummyjson.com/auth/login',user,{headers});
   }
 
 }

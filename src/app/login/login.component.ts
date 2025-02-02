@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['nevo'],{replaceUrl:true})
         console.log(res);
       },
-      error:(err) => {console.log(err.error.message); this.loginError = err.error.message; this.loginForm.reset() },
+      error:(err) => {console.log(err); this.loginError = err?.error?.message; this.loginForm.reset() },
     })
   }
 }

@@ -46,7 +46,7 @@ export const routes: Routes = [
             loadComponent:()=>import('./welcome/recipes/view-recipe/view-recipe.component').then(c => c.ViewRecipeComponent)
           },
           {
-            path:'recipe',
+            path:'recipe/:id',
             loadComponent:()=> import('./welcome/recipes/recipe/recipe.component').then(c => c.RecipeComponent)
           }
         ]

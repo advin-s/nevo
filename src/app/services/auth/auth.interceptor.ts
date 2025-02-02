@@ -8,6 +8,12 @@ import { Router } from "@angular/router";
 export const authInterceptor:HttpInterceptorFn = (req:HttpRequest<unknown>,next:HttpHandlerFn) =>{
     const tokenService = inject(TokenService)
     const router = inject(Router)
+
+    if(req.headers.has('skip')){
+        console.log('skipping interceptor')
+        return next(req)
+    }
+
     return tokenService.token.pipe(switchMap(token => {
         if(!token){
             router.navigate([''])

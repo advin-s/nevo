@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { RatingComponent } from './shared/rating/rating.component';
 
 @Component({
   selector: 'app-root',
