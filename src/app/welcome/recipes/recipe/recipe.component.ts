@@ -4,11 +4,12 @@ import { LoaderService } from '../../../loader/loader.service';
 import { StarComponent } from '../../../shared/rating/star/star.component';
 import { RatingComponent } from '../../../shared/rating/rating.component';
 import { KeyValuePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-recipe',
   standalone: true,
-  imports: [StarComponent,RatingComponent, KeyValuePipe],
+  imports: [StarComponent,RatingComponent, KeyValuePipe,RouterLink],
   templateUrl: './recipe.component.html',
   styleUrl: './recipe.component.scss'
 })
@@ -31,6 +32,10 @@ export class RecipeComponent implements OnInit {
   transformCamelCase(value:any){
     const stringWithCaps = value.split(/(?=[A-Z])/);
     return stringWithCaps ? stringWithCaps.join(' ') : value ;
+  }
+
+  checkArray(value:any[] | string | unknown){
+    return typeof value === 'object' ? true : false
   }
 
 }

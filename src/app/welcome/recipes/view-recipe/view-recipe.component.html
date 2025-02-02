@@ -2,8 +2,6 @@
     <div class="row g-3">
         @for (recipe of recipes; track $index) {
         <app-recipe-item [recipe]="recipe"/>
-        } @empty {
-        <li>There are no recipes.</li>
-        }
+        } 
     </div>
 </div>
