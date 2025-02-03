@@ -15,10 +15,11 @@ export class ViewRecipeComponent {
   private recipeService = inject(RecipesService);
   private loaderService = inject(LoaderService);
   public recipes: any[] = [];
+  public currentPage:number = 0;
 
   ngOnInit(): void {
     this.loaderService.showLoader();
-    this.recipeService.getRecipes().subscribe({
+    this.recipeService.getRecipes('limit=10').subscribe({
       next: (res) => {
         const { recipes } = res;
         this.recipes = recipes;
@@ -27,5 +28,22 @@ export class ViewRecipeComponent {
       },
       error: (err) => console.log(err),
     });
+  }
+
+
+  paginate(nav:string){
+    this.loaderService.showLoader()
+    const itemsPerPage = Math.floor(this.recipes.length)
+    console.log(itemsPerPage);
+    
+    this.currentPage ++
+    this.recipeService.getRecipes(`skip=${this.currentPage * itemsPerPage}&limit=10`).subscribe({
+      next:(res) => {
+        console.log(res)
+        const { recipes } = res
+        this.recipes = recipes
+        this.loaderService.hideLoader()
+      }    
+    })
   }
 }
